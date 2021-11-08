@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import models.ListOfMovies;
+import movierecsys.be.Movie;
 
 /**
  *
@@ -25,17 +27,23 @@ public class MovieRecController implements Initializable
     @FXML
     private TextField txtMovieSearcjh;
 
+    private ListOfMovies movieList;
+
+    public MovieRecController(){
+        movieList = new ListOfMovies();
+    }
+
     /**
      * The TextField containing the query word.
      */
     @FXML
-    private ListView<?> lstMovies;
+    private ListView<Movie> lstMovies;
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-       
+       lstMovies.setItems(movieList.getAllMovies());
         
     }
 
